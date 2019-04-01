@@ -46,6 +46,7 @@ server.use(session({
     saveUninitialized: false,
   }));
 
+// POST
 
   server.post('/api/register', (req, res) => {
    
@@ -59,6 +60,8 @@ server.use(session({
 
 
 });
+
+// POSt
 
 server.post('/api/login', (req, res) => {
 
@@ -83,6 +86,8 @@ server.post('/api/login', (req, res) => {
 catch(err=>res.json(err))
 });
 
+// Get
+
 server.get('/api/users', (req,res) =>{
     
     if(req.session && req.session.userName){
@@ -96,6 +101,9 @@ server.get('/api/users', (req,res) =>{
         
         res.status(400).json({message:'Cant Enter'})}
 })
+
+
+// Post
 
 server.post('/api/logout',(req,res)=>{
     req.session.destroy(err=>{});
@@ -112,6 +120,6 @@ server.post('/api/logout',(req,res)=>{
 
 
 
-
+/// End
 
 server.listen(PORT, () => (`API running on port ${PORT}`));
